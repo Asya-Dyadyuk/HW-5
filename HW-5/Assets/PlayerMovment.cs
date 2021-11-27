@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour
 {
     public CharacterController controller;
-    public float runSpeed = 0.0000000000005f;
+    public float runSpeed = 40f;
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
@@ -13,13 +13,13 @@ public class PlayerMovment : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if (Input.GetButtonDown("Jump"))
-            jump = true;
+       // if (Input.GetButtonDown("Jump"))
+         //   jump = true;
         
-        if (Input.GetButtonDown("Crouch"))
-            crouch = true;
-        else if (Input.GetButtonUp("Crouch"))
-            crouch = false;
+        //if (Input.GetButtonDown("Crouch"))
+          //  crouch = true;
+        //else if (Input.GetButtonUp("Crouch"))
+          //  crouch = false;
     }
 
     private void FixedUpdate()
