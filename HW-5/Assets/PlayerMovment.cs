@@ -13,18 +13,17 @@ public class PlayerMovment : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-       // if (Input.GetButtonDown("Jump"))
-         //   jump = true;
-        
-        //if (Input.GetButtonDown("Crouch"))
-          //  crouch = true;
-        //else if (Input.GetButtonUp("Crouch"))
-          //  crouch = false;
+        if (Input.GetButtonDown("Jump"))
+            jump = true;
+        if (Input.GetButtonDown("Crouch"))
+           crouch = true;
+        else if (Input.GetButtonUp("Crouch"))
+            crouch = false;
     }
 
     private void FixedUpdate()
     {
-        //move the mask
+        //move.
         controller.Move(horizontalMove*Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }

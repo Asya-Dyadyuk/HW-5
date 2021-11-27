@@ -134,12 +134,11 @@ GameObject:
   - component: {fileID: 220737930}
   - component: {fileID: 220737929}
   - component: {fileID: 220737928}
-  - component: {fileID: 220737927}
   - component: {fileID: 220737926}
   - component: {fileID: 220737923}
-  - component: {fileID: 220737922}
   - component: {fileID: 220737931}
   - component: {fileID: 220737924}
+  - component: {fileID: 220737922}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -165,10 +164,10 @@ MonoBehaviour:
   m_AirControl: 0
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 0
   m_GroundCheck: {fileID: 1402890420}
   m_CeilingCheck: {fileID: 342573492}
-  m_CrouchDisableCollider: {fileID: 0}
+  m_CrouchDisableCollider: {fileID: 220737931}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -198,7 +197,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 220737921}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 50500b7dd1332d4479cbf2660c5317e0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -226,32 +225,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &220737927
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220737921}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03, y: 1.07}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 3.125, y: 2.5}
-    newSize: {x: 3.125, y: 2.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.61}
-  m_EdgeRadius: 0
 --- !u!95 &220737928
 Animator:
   serializedVersion: 3
@@ -330,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220737921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4194262, y: -4.0019, z: 0}
+  m_LocalPosition: {x: -3.74, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 0.86107635, z: 1}
   m_Children:
   - {fileID: 342573492}
@@ -347,7 +320,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 220737921}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 50500b7dd1332d4479cbf2660c5317e0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
