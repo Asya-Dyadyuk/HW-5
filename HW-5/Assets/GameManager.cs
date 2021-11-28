@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
-            Debug.Log("Game Over, you win!");
             gameOverScreen.Setup();
         }
     }
