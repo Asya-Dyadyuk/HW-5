@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
     private bool _isFacingRight = true;
     private bool _isWait = false;
     private float _waitTime;
+    public Animator animator; //-----
+    float horizontalMove;//---
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +72,8 @@ public class EnemyController : MonoBehaviour
   
     void Update()
     {
+        horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed; //-----
+        animator.SetFloat("Speed",Mathf.Abs(horizontalMove)); ///-----
         //timer for the enemy to wait
         if (_isWait)
         {
