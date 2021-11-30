@@ -13,7 +13,6 @@ public class GameOverScreen : MonoBehaviour
         this.messege = str;
         textElement.text = str;
         gameObject.SetActive(true);
-       
     }
 
 

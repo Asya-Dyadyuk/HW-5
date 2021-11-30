@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float walkDistance = 6f;
     [SerializeField] private float walkSpeed = 1f;
-    [SerializeField] private float timeToWait  = 5f;
+    [SerializeField] private float timeToWait = 1f;
 
     private Rigidbody2D _rb;
     private Vector2 _leftBoudaryPosition; //left position of the enemy
@@ -22,10 +22,10 @@ public class EnemyController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _leftBoudaryPosition = transform.position; //left point will be where the enemy standing in the first place.
-        _rightBoudaryPosition = _leftBoudaryPosition + Vector2.right *walkDistance; //right point is where the left point + walk distance.left+(x+distance,0)
+        _rightBoudaryPosition = _leftBoudaryPosition + Vector2.right * walkDistance; //right point is where the left point + walk distance.left+(x+distance,0)
         _waitTime = timeToWait;
-
     }
+
     private void FixedUpdate()
     {
         Vector2 nextPoint = Vector2.right * walkSpeed * Time.fixedDeltaTime; //going right
@@ -33,16 +33,16 @@ public class EnemyController : MonoBehaviour
         {
             nextPoint.x *= -1; //negative speed, mooving right
         }
-        if(!_isWait)
-        _rb.MovePosition((Vector2)transform.position + nextPoint); 
+        if (!_isWait)
+            _rb.MovePosition((Vector2)transform.position + nextPoint);
     }
-    //to see the path of the anamy
+    //to see the path of the enemy
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(_leftBoudaryPosition, _rightBoudaryPosition); //where to drow the line
     }
-    //flip the anamy
+    //flip the enemy
     void Flip()
     {
         _isFacingRight = !_isFacingRight;
@@ -50,6 +50,7 @@ public class EnemyController : MonoBehaviour
         playerScale.x *= -1;
         transform.localScale = playerScale;
     }
+
     //if the enemy should wait
     private bool ShouldWait()
     {
@@ -57,6 +58,7 @@ public class EnemyController : MonoBehaviour
         bool isOutOfLeftBoundary = !_isFacingRight && transform.position.x <= _leftBoudaryPosition.x;// the enemy get to the left point that he need to wait
         return isOutOfRightBoundary || isOutOfLeftBoundary;
     }
+
     // Update is called once per frame
     private void Wait()
     {
@@ -67,13 +69,12 @@ public class EnemyController : MonoBehaviour
             _isWait = false;
             Flip(); //flip the enemy after he stopped to wait
         }
-
     }
-  
+
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed; //-----
-        animator.SetFloat("Speed",Mathf.Abs(horizontalMove)); ///-----
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); ///-----
         //timer for the enemy to wait
         if (_isWait)
         {
@@ -85,4 +86,6 @@ public class EnemyController : MonoBehaviour
             _isWait = true;//wait
         }
     }
+
+
 }
