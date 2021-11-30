@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
             Debug.Log("Game Over!");
-
-            gameOverScreen.Setup();
+            gameOverScreen.Setup("Game Over, You lose.");
         }
     }
 
@@ -28,7 +27,7 @@ public class GameManager : MonoBehaviour
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
-            gameOverScreen.Setup();
+            gameOverScreen.Setup("Game Over, You Win");
         }
     }
 

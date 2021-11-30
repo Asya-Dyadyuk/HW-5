@@ -5,10 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
-   public void Setup()
+    public string messege;
+    public Text textElement;
+
+    public void Setup(string str)
     {
+        this.messege = str;
+        textElement.text = str;
         gameObject.SetActive(true);
+       
     }
+
 
     public void RestartButton()
     {

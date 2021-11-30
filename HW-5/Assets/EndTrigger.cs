@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EndTrigger : MonoBehaviour
 {
-    
     public Transform player;
     public GameManager gameManager;
     TextMesh gameOver;
