@@ -6,6 +6,7 @@ public class TakeTheSword : MonoBehaviour
 {
     GameObject Player;
     public GameManager gameManager;
+    public Animator animator;// will be used to control the Animator variables 
 
     private void Start()
     {
@@ -14,8 +15,12 @@ public class TakeTheSword : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.gameObject.tag.Equals("Sword"))
+        {
             collision.gameObject.GetComponent<Renderer>().enabled = false;//get the sword
+            //change the variable "DidWeGetTheSword?" to true, we have the sword!
+            animator.SetBool("DidWeGetTheSword?", true);
+        }
     }
 }

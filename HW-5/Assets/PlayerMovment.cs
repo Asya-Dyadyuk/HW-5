@@ -3,7 +3,7 @@ using System.Threading;
 
 public class PlayerMovment : MonoBehaviour
 {
-    public Animator animator;
+    public Animator animator;// will be used to control the Animator variables 
     public CharacterController controller;
     public float runSpeed = 40f;
     float horizontalMove = 0f;
@@ -14,6 +14,7 @@ public class PlayerMovment : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        //change the variable "Speed" and use the value of horizontalMove, abs is for the direction.
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         if (Input.GetButtonDown("Jump"))
         {
