@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 1579373507}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 698416678}
 --- !u!1 &237225391
 GameObject:
   m_ObjectHideFlags: 0
