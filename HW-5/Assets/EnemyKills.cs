@@ -6,7 +6,6 @@ public class EnemyKills : MonoBehaviour
 {
     GameObject Player;
     public GameManager gameManager;
-
     private void Start()
     {
         Player = gameObject.transform.gameObject;
@@ -26,6 +25,7 @@ public class EnemyKills : MonoBehaviour
             //Destroy(Player);//Destroy the Player
             Player.GetComponent<Renderer>().enabled = false;//remove the player
             gameManager.EndGame();
+           
         }
     }
 }
