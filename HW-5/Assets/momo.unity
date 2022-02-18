@@ -729,7 +729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220737921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.02, y: -3.58, z: 0}
+  m_LocalPosition: {x: -3.74, y: -1.04, z: 0}
   m_LocalScale: {x: 1, y: 0.86107635, z: 1}
   m_Children:
   - {fileID: 342573492}
@@ -791,6 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 1579373507}
   gameManager: {fileID: 698416678}
+  animator: {fileID: 220737925}
 --- !u!1 &237225391
 GameObject:
   m_ObjectHideFlags: 0
@@ -37789,7 +37790,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076564925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.16, y: -1.68, z: -10}
+  m_LocalPosition: {x: 3.14, y: -0.13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -37810,6 +37811,7 @@ MonoBehaviour:
   target: {fileID: 220737930}
   offsrt: {x: 0, y: 0, z: 0}
   smothSpeed: 0.125
+  gameManager: {fileID: 0}
 --- !u!1 &2108070944
 GameObject:
   m_ObjectHideFlags: 0

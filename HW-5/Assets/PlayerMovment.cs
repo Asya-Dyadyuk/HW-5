@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Threading;
+using System;
 
 public class PlayerMovment : MonoBehaviour
 {
@@ -10,9 +11,19 @@ public class PlayerMovment : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
+    void Start()
+    {
+        animator.SetBool("WakeUp", true);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //this piece of code will make the bandit to get up only once.
+        Console.WriteLine(this.animator.GetCurrentAnimatorStateInfo(0).IsName("geteUp"));
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("getUp"))
+            animator.SetBool("WakeUp", false);
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         //change the variable "Speed" and use the value of horizontalMove, abs is for the direction.
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));

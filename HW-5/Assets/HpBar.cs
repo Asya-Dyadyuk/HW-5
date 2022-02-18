@@ -5,37 +5,46 @@ using UnityEngine.UI;
 
 public class HpBar : MonoBehaviour
 {
-    private float HP = 100f;
+    private float hp = 100f;
     public Image bar;
     public GameManager gameManager;
     GameObject Player;
-    void Start()
-    {
-        
-    }
+    public Animator animator;// will be used to control the Animator variables 
 
     // Update is called once per frame
     void Update()
     {
-        
+
+
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Bandit_demage"))
+        {
+            //it the animation is over then change this value
+            animator.SetBool("EnemyAttacks", false);
+
+            //we are dead.
+            if (hp == 0)
+            {
+                
+                gameManager.EndGame();
+            }
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            HP -= 15;
-            bar.fillAmount = HP / 100;
+            //queue the attack
+            animator.SetBool("EnemyAttacks", true);
+
+            hp -= 15;//take damage
+            if (hp < 0)
+            {
+                hp = 0;//15 das not sum up to 100
+                animator.SetFloat("hp", 0);
+                animator.SetBool("BanditIsDead", true);
+            }
+            bar.fillAmount = hp / 100;
         }
-        if (HP == 0)
-             //Player.GetComponent<Collider2D>().enabled = false;
-            // Player.GetComponent<SpriteRenderer>().flipY = true;
-
-
-            // move him;
-            //Vector2 movement = new Vector2(Random.Range(40, 70), Random.Range(-40, 40));
-            // Player.transform.position = (Vector2)Player.transform.position + (movement * Time.deltaTime);
-             //Player.GetComponent<Renderer>().enabled = false;//remove the player
-             gameManager.EndGame();
     }
 }
