@@ -20,8 +20,9 @@ public class EnemyController : MonoBehaviour
     private bool _isWait = false;
     private float _waitTime;
     private bool _isChasingPlayer; // if the enemy goes after the player
-    public Animator animator; //-----
+    public Animator animator; // will be used to control the Animator variables 
     float horizontalMove;//---
+
 
     public bool IsFacingRight
     {
@@ -97,12 +98,7 @@ public class EnemyController : MonoBehaviour
         }
         _rb.MovePosition((Vector2)transform.position + nextPoint);
     }
-    //for me,to see the path of the enemy
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(_leftBoudaryPosition, _rightBoudaryPosition); //where to drow the line
-    }
+
     //flip the enemy
     void Flip()
     {
@@ -128,24 +124,26 @@ public class EnemyController : MonoBehaviour
         {
             _waitTime = timeToWait;
             _isWait = false;
+            //set idle
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); //change the value of speed in 
             Flip(); //flip the enemy after he stopped to wait
         }
     }
 
+   
+    
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed; //-----
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); ///-----
+        horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed; //move
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); //change the value of speed in enamy
         //timer for the enemy to wait
         if (_isWait && !_isChasingPlayer)
-        {
             Wait();
-        }
+        
 
         if (ShouldWait())
-        {
             _isWait = true;//wait
-        }
+        
     }
 
 

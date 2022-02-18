@@ -53,11 +53,5 @@ public class EnemyVision : MonoBehaviour
        
         
     }
-    //just for me
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(_origin, _origin + _direction * _currentHitDistance);
-        Gizmos.DrawSphere(_origin + _direction * _currentHitDistance, circleRadius);
-    }
+ 
 }

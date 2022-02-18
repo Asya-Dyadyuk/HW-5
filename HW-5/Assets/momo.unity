@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 220737928}
   - component: {fileID: 220737932}
   - component: {fileID: 220737933}
+  - component: {fileID: 220737934}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -734,6 +735,7 @@ Transform:
   m_Children:
   - {fileID: 342573492}
   - {fileID: 1402890420}
+  - {fileID: 571201977}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -792,6 +794,26 @@ MonoBehaviour:
   bar: {fileID: 1579373507}
   gameManager: {fileID: 698416678}
   animator: {fileID: 220737925}
+--- !u!114 &220737934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220737921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4e3f03fa431e0488adad748a90d2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 220737925}
+  attackPoint: {fileID: 571201977}
+  atatckRange: 5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  attackDamage: 50
+  attackRate: 2
 --- !u!1 &237225391
 GameObject:
   m_ObjectHideFlags: 0
@@ -34392,6 +34414,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 220737930}
   gameManager: {fileID: 698416678}
+--- !u!1 &571201976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 571201977}
+  m_Layer: 3
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &571201977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571201976}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.46, y: 0.673, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 220737930}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &614384409
 GameObject:
   m_ObjectHideFlags: 0
@@ -35887,7 +35939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -497, y: 208}
+  m_AnchoredPosition: {x: -864, y: 350}
   m_SizeDelta: {x: 105.4367, y: 23.8864}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1130915338
@@ -36455,7 +36507,8 @@ GameObject:
   - component: {fileID: 1476721618}
   - component: {fileID: 1476721620}
   - component: {fileID: 1476721619}
-  m_Layer: 0
+  - component: {fileID: 1476721621}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -36513,8 +36566,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.139371, y: -0.4655189}
-  m_Size: {x: 1.8945669, y: 2.89}
+  m_Offset: {x: -0.2, y: -0.19}
+  m_Size: {x: 0.27, y: 0.52}
   m_Direction: 0
 --- !u!212 &1476721616
 SpriteRenderer:
@@ -36642,8 +36695,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.66}
+  m_Size: {x: 0.3, y: 0.51}
   m_EdgeRadius: 0
+--- !u!114 &1476721621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476721612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4b7bed1f0ac3841a50c9232beb6f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1476721618}
+  maxHp: 100
 --- !u!1 &1536494295
 GameObject:
   m_ObjectHideFlags: 0
@@ -36757,7 +36824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -497, y: 208}
+  m_AnchoredPosition: {x: -864, y: 350}
   m_SizeDelta: {x: 105.4367, y: 23.8864}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1579373507
@@ -37766,7 +37833,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.048074
+  orthographic size: 5.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
