@@ -1,15 +1,14 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+public class EnemyCombat : MonoBehaviour
 {
     public Animator animator;// will be used to control the Animator variables 
 
     public Transform attackPoint;//the position of the sword
-    public float atatckRange = 0.5f;
-    public LayerMask enemyLayers;//who are the enemys?
+    public float atatckRange = 10f;
+    public LayerMask enemyLayers;//who are the enemies?
 
     public int attackDamage = 50;
 
@@ -22,24 +21,25 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
         if (Time.time >= nextAttackTime)
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKeyDown(KeyCode.RightControl))
             {
                 attack();
                 this.nextAttackTime = Time.time + 1f / attackRate;
             }
     }
 
-    private void attack()
+    public void attack()
     {
-        animator.SetTrigger("BanditAttacks");
+        //animator.SetTrigger("Skeleton_Attacks");
 
         //detecting the enemeys
-        Collider2D[] hit = Physics2D.OverlapCircleAll(attackPoint.position, atatckRange, enemyLayers);
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, atatckRange, enemyLayers);
 
-        //demege the enemys
-        foreach(Collider2D enemy in hit)
-            enemy.GetComponent<Enemy>().takeDamage(attackDamage);
-        
+        //demege the bandit
+        //foreach (Collider2D enemy in hit)
+        if(hit != null)
+            hit.GetComponent<HpBar>().takeDamage(attackDamage);
+
     }
 
     private void OnDrawGizmosSelected()

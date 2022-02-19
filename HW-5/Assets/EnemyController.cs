@@ -6,23 +6,27 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float walkDistance = 6f;
-    [SerializeField] private float walkSpeed = 1f;
+    private float walkSpeed = 1f;
     [SerializeField] private float timeToWait = 1f;
     [SerializeField] private float minDistanceToPlayer = 1.5f; //if the distanss less then 1.5 enemy will stand still.
 
+    public Rigidbody2D rigidbody;
     private Rigidbody2D _rb;
     private Transform _playerTransform;//the position of the player
     private Vector2 _leftBoudaryPosition; //left position of the enemy
     private Vector2 _rightBoudaryPosition; //right position of the enemy
     private Vector2 nextPoint;
 
+    float deltaX = 0;
+
     private bool _isFacingRight = true;
     private bool _isWait = false;
     private float _waitTime;
     private bool _isChasingPlayer; // if the enemy goes after the player
     public Animator animator; // will be used to control the Animator variables 
-    float horizontalMove;//---
+    float horizontalMove;
 
+    public Enemy enemy;
 
     public bool IsFacingRight
     {
@@ -36,7 +40,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        deltaX = transform.position.x;
         _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); 
         _rb = GetComponent<Rigidbody2D>();
         _leftBoudaryPosition = transform.position; //left point will be where the enemy standing in the first place.
@@ -116,34 +120,48 @@ public class EnemyController : MonoBehaviour
         return isOutOfRightBoundary || isOutOfLeftBoundary;
     }
 
-    
     private void Wait()
     {
         _waitTime -= Time.deltaTime;
         if (_waitTime < 0f)
         {
+            walkSpeed = 0;
             _waitTime = timeToWait;
             _isWait = false;
             //set idle
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); //change the value of speed in 
             Flip(); //flip the enemy after he stopped to wait
+            walkSpeed = 1;
         }
     }
 
-   
-    
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed; //move
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); //change the value of speed in enamy
-        //timer for the enemy to wait
+        var val = rigidbody.velocity;
+        Debug.Log(val.x);
+
+        if(this.transform.hasChanged)
+            animator.SetFloat("Skeleton_Speed", Mathf.Abs(walkSpeed));
+        else
+            animator.SetFloat("Skeleton_Speed", 0);
+
+
+        if (!enemy.isAlive)
+            this.enabled = false;
+
+        //if (deltaX - transform.position.x == 0)
+            //animator.SetFloat("Skeleton_Speed", 0);
+        //else
+            //animator.SetFloat("Skeleton_Speed", Mathf.Abs(walkSpeed));
+        //animator.SetFloat("Skeleton_Speed", Mathf.Abs(horizontalMove)); //change the value of speed in enamy
+                                                                        //timer for the enemy to wait
         if (_isWait && !_isChasingPlayer)
             Wait();
-        
+
 
         if (ShouldWait())
             _isWait = true;//wait
-        
+        deltaX = transform.position.x;
     }
 
 
