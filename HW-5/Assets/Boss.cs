@@ -6,7 +6,7 @@ public class Boss : MonoBehaviour
 {
     public Animator animator;// will be used to control the Animator variables 
 
-    GameManager gm;
+    public GameManager gm;
 
     public int maxHp = 100;
     int EnemyHp;
