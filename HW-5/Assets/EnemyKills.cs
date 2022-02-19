@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyKills : MonoBehaviour
 {
+    //delete class
+
+
     GameObject Player;
     public GameManager gameManager;
     private void Start()

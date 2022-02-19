@@ -60,9 +60,14 @@ public class HpBar : MonoBehaviour
 
     public void takePotion()
     {
-        this.hp =+ 25;
+        if (this.hp + 25 > 100)
+            this.hp = 100;
+        else
+            this.hp += 25;
+        bar.fillAmount = hp / 100;
         animator.SetFloat("hp", this.hp);
     }
+
     void die()
     {
         this.hp = 0;//15 das not sum up to 100
