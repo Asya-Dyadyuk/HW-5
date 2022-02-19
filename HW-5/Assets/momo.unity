@@ -236,9 +236,10 @@ GameObject:
   - component: {fileID: 49232005}
   - component: {fileID: 49232004}
   - component: {fileID: 49232006}
+  - component: {fileID: 49232007}
   m_Layer: 0
-  m_Name: the sword
-  m_TagString: Sword
+  m_Name: Potion
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +284,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 52f8dce5c567f0a418ce903bcbc11f19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ddf8838d0a06d8d4c9dec9e3bed69260, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -302,8 +303,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49232003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.43, y: 5.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 33.43, y: 4.7, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -324,8 +325,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.375, y: 1.0416666}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.8125, y: 1.125}
     newSize: {x: 0.375, y: 1.0416666}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -334,6 +335,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.375, y: 1.0416666}
   m_EdgeRadius: 0
+--- !u!95 &49232007
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49232003}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7bda98b8bfc66d64ab09bd05d9ad5f3f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &109122181
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +564,7 @@ GameObject:
   - component: {fileID: 220737932}
   - component: {fileID: 220737933}
   - component: {fileID: 220737934}
+  - component: {fileID: 220737935}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -804,11 +825,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 220737921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe64311ce2358ce46aa056275946411d, type: 3}
+  m_Script: {fileID: 11500000, guid: ba1e2b6d84e999947b05639de34780d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 698416678}
-  animator: {fileID: 220737925}
 --- !u!114 &220737933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +864,20 @@ MonoBehaviour:
     m_Bits: 64
   attackDamage: 50
   attackRate: 2
+--- !u!114 &220737935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220737921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe64311ce2358ce46aa056275946411d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 698416678}
+  animator: {fileID: 220737925}
 --- !u!1 &237225391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,10 +1534,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lines:
-  - 0
-  - 1
-  - 2
-  - 3
+  - what
+  - ware am i?
+  - biatrese?
+  - whre are you?
   - 4
   currentLine: 0
 --- !u!114 &415210444
@@ -36968,7 +37001,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 8
-  attackDamage: 50
+  attackDamage: 25
   attackRate: 2
 --- !u!1 &1536494295
 GameObject:
