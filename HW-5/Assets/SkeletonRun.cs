@@ -29,9 +29,8 @@ public class SkeletonRun : StateMachineBehaviour
         rigidbody.MovePosition(newPos);
 
         if(Vector2.Distance(player.position, rigidbody.position) <= attackRange)
-        {
             animator.SetTrigger("Skeleton_Attacks");
-        }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

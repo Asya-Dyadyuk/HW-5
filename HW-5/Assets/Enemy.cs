@@ -15,6 +15,12 @@ public class Enemy : MonoBehaviour
 
     public bool isFlipped = false;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        EnemyHp = maxHp;
+    }
+
     public void LookAtPlayer()
     {
         Vector3 flipped = transform.localScale;
@@ -34,16 +40,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        EnemyHp = maxHp;
-    }
-
     private void Update()
     {
-        LookAtPlayer();
+        //LookAtPlayer();
     }
+
     public void takeDamage(int amountOfDamage)
     {
         EnemyHp -= amountOfDamage;
@@ -60,10 +61,6 @@ public class Enemy : MonoBehaviour
         this.isAlive = false;
         animator.SetBool("Dead", true);//get to the death animation
 
-        //get the Collider and cancel it.
-        // GetComponent<Collider2D>().enabled = false;
-
-        this.enabled = false;//make the enemy disapper
-        
+        this.enabled = false;//make the enemy disappear
     }
 }

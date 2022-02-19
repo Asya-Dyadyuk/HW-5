@@ -10,7 +10,7 @@ public class EnemyCombat : MonoBehaviour
     public float atatckRange = 10f;
     public LayerMask enemyLayers;//who are the enemies?
 
-    public int attackDamage = 50;
+    public int attackDamage = 25;
 
     //rate of attack
     public float attackRate = 2f;
@@ -35,8 +35,7 @@ public class EnemyCombat : MonoBehaviour
         //detecting the enemeys
         Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, atatckRange, enemyLayers);
 
-        //demege the bandit
-        //foreach (Collider2D enemy in hit)
+        //damage the bandit
         if(hit != null)
             hit.GetComponent<HpBar>().takeDamage(attackDamage);
 

@@ -53,19 +53,14 @@ public class EnemyController : MonoBehaviour
         nextPoint = Vector2.right * walkSpeed * Time.fixedDeltaTime; //going right
 
         if(Mathf.Abs(DistanceToPlayer()) < minDistanceToPlayer)
-        {
             return;
-        }
-
+        
         if (_isChasingPlayer) //go after our player
-        {
             ChasePlayer();
-        } 
-
+        
         if (!_isWait && !_isChasingPlayer)
-        {
             Patrol();
-        }
+        
            
     }
 
@@ -77,9 +72,9 @@ public class EnemyController : MonoBehaviour
     private void Patrol()
     {
         if (!_isFacingRight) //if the anamy looking to left
-        {
+        
             nextPoint.x *= -1; //negative speed, mooving right
-        }
+        
         _rb.MovePosition((Vector2)transform.position + nextPoint);
     }
 
@@ -88,18 +83,14 @@ public class EnemyController : MonoBehaviour
         float distance = (DistanceToPlayer()); //if player is on the right size of the enemy distance>0 otherwise distance<0
        
         if (distance < 0)
-        {
             nextPoint.x *= -1;
-        }
         //we choose to cheack <>0.2 becuse when we on the same spote with the enemy, the enemy dosnt know where to look
         if(distance > 0.2f && !_isFacingRight) //the player in the right side of the enemy but he is looking to the left size
-        {
             Flip(); //flip the enemy
-        }
+        
         else if(distance < 0.2f && _isFacingRight)
-        {
             Flip(); //flip the enemy
-        }
+
         _rb.MovePosition((Vector2)transform.position + nextPoint);
     }
 
@@ -149,12 +140,6 @@ public class EnemyController : MonoBehaviour
         if (!enemy.isAlive)
             this.enabled = false;
 
-        //if (deltaX - transform.position.x == 0)
-            //animator.SetFloat("Skeleton_Speed", 0);
-        //else
-            //animator.SetFloat("Skeleton_Speed", Mathf.Abs(walkSpeed));
-        //animator.SetFloat("Skeleton_Speed", Mathf.Abs(horizontalMove)); //change the value of speed in enamy
-                                                                        //timer for the enemy to wait
         if (_isWait && !_isChasingPlayer)
             Wait();
 

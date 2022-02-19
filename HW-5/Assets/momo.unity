@@ -559,7 +559,6 @@ GameObject:
   - component: {fileID: 220737924}
   - component: {fileID: 220737922}
   - component: {fileID: 220737925}
-  - component: {fileID: 220737927}
   - component: {fileID: 220737928}
   - component: {fileID: 220737932}
   - component: {fileID: 220737933}
@@ -683,19 +682,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &220737927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220737921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f7525fd5c05a5a40b09a430f1e8e6dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 698416678}
 --- !u!61 &220737928
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36987,7 +36973,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476721612}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9e618727f78705479138e604c751e2a, type: 3}
   m_Name: 
@@ -37033,7 +37019,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 8
-  attackDamage: 25
+  attackDamage: 10
   attackRate: 2
 --- !u!1 &1536494295
 GameObject:
