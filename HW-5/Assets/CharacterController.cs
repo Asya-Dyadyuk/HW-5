@@ -60,7 +60,10 @@ public class CharacterController : MonoBehaviour
 		}
 	}
 
-
+	public void setJumpForce()
+    {
+		this.m_JumpForce = 1000f;
+    }
 	public void Move(float move, bool crouch, bool jump)
 	{
 		// If crouching, check to see if the character can stand up

@@ -16,12 +16,20 @@ public class TakeThePotion : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag.Equals("Potion"))
+        if (collision.gameObject.tag.Equals("HealthPotion"))
         {
             collision.gameObject.GetComponent<Renderer>().enabled = false;//get the Potion
-            //change the variable "DidWeGetTheSword?" to true, we have the sword!
-            //animator.SetBool("DidWeGetTheSword?", true);
+
             player.GetComponent<HpBar>().takePotion();
         }
+
+        if (collision.gameObject.tag.Equals("JumpPotion"))
+        {
+            collision.gameObject.GetComponent<Renderer>().enabled = false;//get the Potion
+
+            player.GetComponent<CharacterController>().setJumpForce();
+        }
+
+
     }
 }

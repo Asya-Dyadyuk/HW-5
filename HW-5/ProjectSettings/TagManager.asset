@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Sword
-  - Potion
+  - HealthPotion
+  - JumpPotion
   layers:
   - Default
   - TransparentFX
