@@ -11,7 +11,10 @@ public class LoadLevel : MonoBehaviour
     public Transform player;
 
     public bool useIntegerToLoadLevel = false;
-
+    private void OnLevelWasLoaded(int level)
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject collisionGameObject = collision.gameObject; // to acess all the information about the object we collided with

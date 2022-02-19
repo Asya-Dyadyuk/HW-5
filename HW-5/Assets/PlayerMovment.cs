@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Threading;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovment : MonoBehaviour
 {
@@ -11,20 +12,32 @@ public class PlayerMovment : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
+    GameObject[] players;
+
     void Start()
     {
         animator.SetBool("WakeUp", true);
-        DontDestroyOnLoad(gameObject); // to make the player apper in the level2
+        if (SceneManager.GetActiveScene().name == "momo")
+        {
+            DontDestroyOnLoad(gameObject); // to make the player appear in the level2
+        }
     }
 
     private void OnLevelWasLoaded(int level)
     {
+
+        players = GameObject.FindGameObjectsWithTag("Player");
+        if(players.Length > 1)
+        {
+            Destroy(players[1]);
+        }
         FindStartPos(); //puts our player in the start position that we choose
+
     }
 
     void FindStartPos()
     {
-        transform.position = GameObject.FindWithTag("StartPos").transform.position;
+        transform.position = GameObject.FindGameObjectWithTag("StartPos").transform.position;
     }
 
     // Update is called once per frame
@@ -48,13 +61,13 @@ public class PlayerMovment : MonoBehaviour
 
     public void onLanding()
     {
-         animator.SetBool("Jump", false);
+        animator.SetBool("Jump", false);
     }
 
     private void FixedUpdate()
     {
         //move.
-        controller.Move(horizontalMove*Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
 }

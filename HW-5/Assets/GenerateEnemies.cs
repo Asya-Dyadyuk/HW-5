@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GenerateEnemies : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class GenerateEnemies : MonoBehaviour
     const float platformC2Y = -1.27f;
 
     //platform D.
-    const float platformDa =  54.33f;
+    const float platformDa = 54.33f;
     const float platformDb = 76.83f;
     const float platformDY = -0.84f;
 
@@ -42,14 +43,17 @@ public class GenerateEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //create the platforms
-        platformA = new Platform(platformAa, platformAb);
-        platformB = new Platform(platformBa, platformBb);
-        platformC1 = new Platform(platformC1a, platformC1b);
-        platformC2 = new Platform(platformC2a, platformC2b);
-        platformD = new Platform(platformDa, platformDb);
+        if (SceneManager.GetActiveScene().name == "momo")
+        {
+            //create the platforms
+            platformA = new Platform(platformAa, platformAb);
+            platformB = new Platform(platformBa, platformBb);
+            platformC1 = new Platform(platformC1a, platformC1b);
+            platformC2 = new Platform(platformC2a, platformC2b);
+            platformD = new Platform(platformDa, platformDb);
 
-        StartCoroutine(EnemyDrop());
+            StartCoroutine(EnemyDrop());
+        }
     }
 
     IEnumerator EnemyDrop()

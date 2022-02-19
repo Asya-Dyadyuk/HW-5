@@ -26,7 +26,6 @@ public class HpBar : MonoBehaviour
             die();
 
             gameManager.EndGame();
-
         }
     }
 

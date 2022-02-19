@@ -44,7 +44,7 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
-        //LookAtPlayer();
+        LookAtPlayer();
     }
 
     public void takeDamage(int amountOfDamage)

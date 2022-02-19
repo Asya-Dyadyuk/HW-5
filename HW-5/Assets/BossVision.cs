@@ -9,7 +9,7 @@ public class BossVision : MonoBehaviour
     [SerializeField] private float maxDistance; //the distance that our enemy will see us
     [SerializeField] private LayerMask layerMask;
 
-    private EnemyController _enemyController;
+    private BossController _bossController;
     private Vector2 _origin;
     private Vector2 _direction; //what direction the enemy looking
 
@@ -17,7 +17,7 @@ public class BossVision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _enemyController = GetComponent<EnemyController>();
+        _bossController = GetComponent<BossController>();
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class BossVision : MonoBehaviour
     {
         _origin = transform.position;
 
-        if (_enemyController.IsFacingRight)
+        if (_bossController.IsFacingRight)
         {
             _direction = Vector2.right;
         }
@@ -42,7 +42,7 @@ public class BossVision : MonoBehaviour
             _currentHitDistance = hit.distance;
             if (currentHitObject.CompareTag("Player")) //If the enemy has seen the player, we want the enemy to follow the player.
             {
-                _enemyController.StartChasingPlayer();
+                _bossController.StartChasingPlayer();
             }
             else //the enemy has not seen the player,dont change nothing
             {

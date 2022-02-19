@@ -19,7 +19,10 @@ public class CameraFollow : MonoBehaviour
     {
         offsrt = transform.position - target.transform.position;//get the position of the bandit
     }
-
+    private void OnLevelWasLoaded(int level)
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     //runs right after update
     void LateUpdate()
     {

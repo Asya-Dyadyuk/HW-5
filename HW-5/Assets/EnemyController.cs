@@ -129,7 +129,6 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         var val = rigidbody.velocity;
-        Debug.Log(val.x);
 
         if(this.transform.hasChanged)
             animator.SetFloat("Skeleton_Speed", Mathf.Abs(walkSpeed));
