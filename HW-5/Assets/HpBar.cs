@@ -53,17 +53,21 @@ public class HpBar : MonoBehaviour
         animator.SetTrigger("Bandit_demage");
 
         if (hp <= 0)
-            die();
-            
+            hp = 0;
         bar.fillAmount = hp / 100;
 
     }
 
+    public void takePotion()
+    {
+        this.hp =+ 25;
+        animator.SetFloat("hp", this.hp);
+    }
     void die()
     {
-        hp = 0;//15 das not sum up to 100
-        animator.SetFloat("hp", 0);
+        this.hp = 0;//15 das not sum up to 100
+        animator.SetFloat("hp", this.hp);
         animator.SetBool("BanditIsDead", true);
-        Player.GetComponent<PlayerMovment>().runSpeed = 0f;
+        Player.GetComponent<PlayerMovment>().runSpeed = 0f;//paralyze
     }
 }

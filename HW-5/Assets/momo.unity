@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 49232004}
   - component: {fileID: 49232006}
   m_Layer: 0
-  m_Name: the sword
+  m_Name: Potion
   m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1501,10 +1501,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lines:
-  - 0
-  - 1
-  - 2
-  - 3
+  - what
+  - ware am i?
+  - biatrese?
+  - whre are you?
   - 4
   currentLine: 0
 --- !u!114 &415210444
