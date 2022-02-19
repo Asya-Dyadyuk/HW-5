@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class EndTrigger : MonoBehaviour
-{
+{/*
     const float WaterHeight = (float)-5.59;
     public Transform player;
     public GameManager gameManager;
@@ -17,5 +17,5 @@ public class EndTrigger : MonoBehaviour
             gameManager.EndGame();
         }
 
-    }
+    }*/
 }

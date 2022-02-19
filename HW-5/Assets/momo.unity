@@ -469,8 +469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &171519941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,8 +1139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!95 &348940244
 Animator:
   serializedVersion: 3
@@ -1430,8 +1426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &393948702
 GameObject:
   m_ObjectHideFlags: 0
@@ -34544,8 +34538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &471552315
 GameObject:
   m_ObjectHideFlags: 0
@@ -34661,8 +34653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &571201976
 GameObject:
   m_ObjectHideFlags: 0
@@ -35089,8 +35079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &698136498
 GameObject:
   m_ObjectHideFlags: 0
@@ -35456,8 +35444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &861486430
 GameObject:
   m_ObjectHideFlags: 0
@@ -35904,8 +35890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &1089620907
 GameObject:
   m_ObjectHideFlags: 0
@@ -36103,8 +36087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &1093032951
 GameObject:
   m_ObjectHideFlags: 0
@@ -37404,8 +37386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!95 &1756499748
 Animator:
   serializedVersion: 3
@@ -37591,8 +37571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &1779734314
 GameObject:
   m_ObjectHideFlags: 0
@@ -38317,7 +38295,8 @@ MonoBehaviour:
   target: {fileID: 220737930}
   offsrt: {x: 0, y: 0, z: 0}
   smothSpeed: 0.125
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 698416678}
+  player: {fileID: 0}
 --- !u!1 &2108070944
 GameObject:
   m_ObjectHideFlags: 0
@@ -38515,8 +38494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29148c4cfce6ef41a4028c76ef0b731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 220737930}
-  gameManager: {fileID: 698416678}
 --- !u!1 &2118770873
 GameObject:
   m_ObjectHideFlags: 0

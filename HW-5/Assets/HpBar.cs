@@ -70,7 +70,7 @@ public class HpBar : MonoBehaviour
         animator.SetFloat("hp", this.hp);
     }
 
-    void die()
+    public void die()
     {
         this.hp = 0;//15 das not sum up to 100
         animator.SetFloat("hp", this.hp);

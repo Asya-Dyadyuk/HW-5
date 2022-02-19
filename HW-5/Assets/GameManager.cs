@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameOverScreen gameOverScreen;
-    bool gameHasEnded = false;
+    static bool gameHasEnded = false;
     
 
     public float restarDelay = 1f;

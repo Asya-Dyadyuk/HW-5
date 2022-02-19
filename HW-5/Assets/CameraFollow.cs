@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
     bool stopFollowing;//stop the camera when you fall throw the water .
     public GameManager gameManager;
 
+    bool banditDrowned = false;
 
     Vector3 lastPos;
 
@@ -26,10 +27,12 @@ public class CameraFollow : MonoBehaviour
         {
             Vector3 newPos = target.transform.position + offsrt;
             //stop Following at a certain hight 
-            if (transform.position.y <= WaterHeight)
+            if (transform.position.y <= WaterHeight && banditDrowned == false)
             {
                 stopFollowing = true;
+                banditDrowned = true;
                 gameManager.EndGame();
+
             }
             transform.position = newPos;
         }
