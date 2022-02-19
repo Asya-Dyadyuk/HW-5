@@ -8,7 +8,7 @@ public class HpBar : MonoBehaviour
     private float hp = 100f;
     public Image bar;
     public GameManager gameManager;
-    GameObject Player;
+    public GameObject Player;
     public Animator animator;// will be used to control the Animator variables 
 
     // Update is called once per frame
@@ -64,5 +64,6 @@ public class HpBar : MonoBehaviour
         hp = 0;//15 das not sum up to 100
         animator.SetFloat("hp", 0);
         animator.SetBool("BanditIsDead", true);
+        Player.GetComponent<PlayerMovment>().runSpeed = 0f;
     }
 }
