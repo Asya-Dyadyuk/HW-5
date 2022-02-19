@@ -17,6 +17,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -37,9 +38,8 @@ public class PlayerCombat : MonoBehaviour
 
         //demege the enemys
         foreach(Collider2D enemy in hit)
-        {
             enemy.GetComponent<Enemy>().takeDamage(attackDamage);
-        }
+        
     }
 
     private void OnDrawGizmosSelected()
@@ -47,6 +47,7 @@ public class PlayerCombat : MonoBehaviour
         if (attackPoint == null)
             return;
 
+        //show me the range of the attack
         Gizmos.DrawWireSphere(attackPoint.position, atatckRange);
     }
 
