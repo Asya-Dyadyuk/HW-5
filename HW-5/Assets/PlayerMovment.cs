@@ -14,6 +14,9 @@ public class PlayerMovment : MonoBehaviour
     void Start()
     {
         animator.SetBool("WakeUp", true);
+        DontDestroyOnLoad(gameObject); // to make the player apper in the level2
+        
+       
     }
 
     // Update is called once per frame
@@ -48,5 +51,15 @@ public class PlayerMovment : MonoBehaviour
         //move.
         controller.Move(horizontalMove*Time.fixedDeltaTime, crouch, jump);
         jump = false;
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        FindStartPos(); //puts our player in the start position that we choose
+    }
+
+     void FindStartPos()
+    {
+        transform.position = GameObject.FindWithTag("StartPos").transform.position;
     }
 }
