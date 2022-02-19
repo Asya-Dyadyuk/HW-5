@@ -58,22 +58,22 @@ public class GenerateEnemies : MonoBehaviour
         {
             enemyCount++;
             xPos = Random.Range(1, 77);
-            //A
+            // Platform A
             if (xPos >= platformA.getA() && xPos <= platformA.getB())
                 Instantiate(theEnemy, new Vector2(xPos, platformAY), Quaternion.identity);
-            //B
+            //Platform B
             else if (xPos >= platformB.getA() && xPos <= platformB.getB())
                 Instantiate(theEnemy, new Vector2(xPos, platformBY), Quaternion.identity);
-            //C1
+            //Platform C part 1
             else if (xPos >= platformC1.getA() && xPos <= platformC1.getB())
                 Instantiate(theEnemy, new Vector2(xPos, platformC1Y), Quaternion.identity);
-            //C2
+            //Platform C part 2
             else if (xPos >= platformC2.getA() && xPos <= platformC2.getB())
                 Instantiate(theEnemy, new Vector2(xPos, platformC2Y), Quaternion.identity);
-            //D
+            //Platform D
             else if (xPos >= platformD.getA() && xPos <= platformD.getB())
                 Instantiate(theEnemy, new Vector2(xPos, platformDY), Quaternion.identity);
-            //WE DID NOT CREATE NO ENEMY REPET
+            //WE DID NOT CREATE NO ENEMY, REPET
             else
                 enemyCount--;
             yield return new WaitForSeconds(0.1f);
