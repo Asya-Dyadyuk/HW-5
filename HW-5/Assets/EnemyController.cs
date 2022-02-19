@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
     public Animator animator; // will be used to control the Animator variables 
     float horizontalMove;//---
 
+    public Enemy enemy;
 
     public bool IsFacingRight
     {
@@ -116,7 +117,6 @@ public class EnemyController : MonoBehaviour
         return isOutOfRightBoundary || isOutOfLeftBoundary;
     }
 
-    
     private void Wait()
     {
         _waitTime -= Time.deltaTime;
@@ -130,19 +130,19 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-   
-    
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed; //move
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); //change the value of speed in enamy
-        //timer for the enemy to wait
-        if (_isWait && !_isChasingPlayer)
-            Wait();
-        
+        if (!enemy.isAlive)
+            this.enabled = false;
+            horizontalMove = Input.GetAxisRaw("Horizontal") * walkSpeed; //move
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove)); //change the value of speed in enamy
+                                                                   //timer for the enemy to wait
+            if (_isWait && !_isChasingPlayer)
+                Wait();
 
-        if (ShouldWait())
-            _isWait = true;//wait
+
+            if (ShouldWait())
+                _isWait = true;//wait
         
     }
 

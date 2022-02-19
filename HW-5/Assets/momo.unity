@@ -812,7 +812,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  attackDamage: 25
+  attackDamage: 50
   attackRate: 2
 --- !u!1 &237225391
 GameObject:
@@ -36532,6 +36532,7 @@ MonoBehaviour:
   timeToWait: 1
   minDistanceToPlayer: 1.5
   animator: {fileID: 1476721618}
+  enemy: {fileID: 1476721621}
 --- !u!50 &1476721614
 Rigidbody2D:
   serializedVersion: 4
@@ -36711,6 +36712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1476721618}
   maxHp: 100
+  isAlive: 1
 --- !u!1 &1536494295
 GameObject:
   m_ObjectHideFlags: 0
