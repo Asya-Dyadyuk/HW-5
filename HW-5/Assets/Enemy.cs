@@ -11,12 +11,39 @@ public class Enemy : MonoBehaviour
     public bool isAlive = true;
 
 
+    public Transform player;
+
+    public bool isFlipped = false;
+
+    public void LookAtPlayer()
+    {
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+
+         if (transform.position.x > player.position.x && !isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = true;
+        }
+        else if (transform.position.x < player.position.x && isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = false;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         EnemyHp = maxHp;
     }
 
+    private void Update()
+    {
+        LookAtPlayer();
+    }
     public void takeDamage(int amountOfDamage)
     {
         EnemyHp -= amountOfDamage;

@@ -15,18 +15,16 @@ public class HpBar : MonoBehaviour
     void Update()
     {
 
-
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Bandit_demage"))
+        //we are dead
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Bandit_demage") || hp == 0)
         {
             //it the animation is over then change this value
             animator.SetBool("EnemyAttacks", false);
 
-            //we are dead.
-            if (hp == 0)
-            {
-                
-                gameManager.EndGame();
-            }
+            die();
+
+            gameManager.EndGame();
+
         }
     }
 
@@ -46,5 +44,25 @@ public class HpBar : MonoBehaviour
             }
             bar.fillAmount = hp / 100;
         }
+    }
+
+    public void takeDamage(int amountOfDamage)
+    {
+        hp -= amountOfDamage;
+
+        animator.SetTrigger("Bandit_demage");
+
+        if (hp <= 0)
+            die();
+            
+        bar.fillAmount = hp / 100;
+
+    }
+
+    void die()
+    {
+        hp = 0;//15 das not sum up to 100
+        animator.SetFloat("hp", 0);
+        animator.SetBool("BanditIsDead", true);
     }
 }

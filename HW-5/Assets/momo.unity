@@ -961,7 +961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &342573492
 Transform:
   m_ObjectHideFlags: 0
@@ -36565,7 +36565,6 @@ GameObject:
   - component: {fileID: 1476721614}
   - component: {fileID: 1476721613}
   - component: {fileID: 1476721618}
-  - component: {fileID: 1476721620}
   - component: {fileID: 1476721619}
   - component: {fileID: 1476721621}
   - component: {fileID: 1476721622}
@@ -36589,9 +36588,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkDistance: 4
-  walkSpeed: 1
   timeToWait: 1
   minDistanceToPlayer: 1.5
+  rigidbody: {fileID: 1476721614}
   animator: {fileID: 1476721618}
   enemy: {fileID: 1476721621}
 --- !u!50 &1476721614
@@ -36723,7 +36722,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476721612}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9e618727f78705479138e604c751e2a, type: 3}
   m_Name: 
@@ -36734,32 +36733,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
---- !u!61 &1476721620
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1476721612}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.19, y: -0.18}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 0.96}
-    newSize: {x: 5.12, y: 5.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.51}
-  m_EdgeRadius: 0
 --- !u!114 &1476721621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36775,6 +36748,8 @@ MonoBehaviour:
   animator: {fileID: 1476721618}
   maxHp: 100
   isAlive: 1
+  player: {fileID: 220737930}
+  flip: 0
 --- !u!114 &1476721622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36789,10 +36764,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1476721618}
   attackPoint: {fileID: 171519942}
-  atatckRange: 0.5
+  atatckRange: 1
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   attackDamage: 50
   attackRate: 2
 --- !u!1 &1536494295
