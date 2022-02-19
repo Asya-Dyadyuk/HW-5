@@ -36813,10 +36813,10 @@ GameObject:
   - component: {fileID: 1476721616}
   - component: {fileID: 1476721615}
   - component: {fileID: 1476721614}
-  - component: {fileID: 1476721613}
   - component: {fileID: 1476721618}
-  - component: {fileID: 1476721619}
   - component: {fileID: 1476721621}
+  - component: {fileID: 1476721613}
+  - component: {fileID: 1476721619}
   - component: {fileID: 1476721622}
   m_Layer: 6
   m_Name: Enemy
