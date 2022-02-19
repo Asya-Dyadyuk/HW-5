@@ -14,13 +14,15 @@ public class HpBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(this.animator.GetCurrentAnimatorStateInfo(0).IsName("Bandit_demage"))
+            animator.SetBool("EnemyAttacks", false);
+
 
         //we are dead
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Bandit_demage") || hp == 0)
+        if ( hp == 0)
         {
             //it the animation is over then change this value
             animator.SetBool("EnemyAttacks", false);
-
             die();
 
             gameManager.EndGame();
