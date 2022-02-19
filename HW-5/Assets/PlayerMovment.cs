@@ -14,6 +14,17 @@ public class PlayerMovment : MonoBehaviour
     void Start()
     {
         animator.SetBool("WakeUp", true);
+        DontDestroyOnLoad(gameObject); // to make the player apper in the level2
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        FindStartPos(); //puts our player in the start position that we choose
+    }
+
+    void FindStartPos()
+    {
+        transform.position = GameObject.FindWithTag("StartPos").transform.position;
     }
 
     // Update is called once per frame
